@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 约束 -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace：命名空间 -->
+<mapper namespace="stu">
+	<!-- SQL语句
+		id：唯一的标识（方法名）
+		parameterType：入参的类型
+		resultType：返回结果集类型
+		resultMap：结果集
+		#{} ：占位符 
+		简单类型：#{任意名称}		建议写属性名称
+		
+		${ } 连接符号
+  	类 类型	${属性名}
+	 -->
+	 <!-- 根据id查询学生 -->
+  <select id="selectStu" parameterType="int" resultType="pojo.Student" >
+    select * from student where stuid = #{stuid}
+  </select>
+  
+  <!-- 模糊查询
+  	${ } 连接符号
+  	类 类型	${属性名}
+   -->
+   <!-- 根据姓名查询 -->
+  <select id="selectStuByName" resultType="pojo.Student">
+  	select * from student where name like '%${value}%'
+  </select>
+  <!-- 查询所有 -->
+  <select id="selectall"  resultType="pojo.Student">
+  	select * from student
+  </select>
+  
+  <!-- 更新 -->
+  <update id="updateStu" parameterType="pojo.Student" >
+  	update student set name=#{name},age=#{age} where stuid=#{stuid}
+  </update>
+  
+</mapper>
