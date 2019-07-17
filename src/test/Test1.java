@@ -52,6 +52,7 @@ public class Test1 {
 			System.out.println(student);
 		}
 		System.out.println("----------------");
+		System.out.println("--------------------------");
 		is.close();
 		
 	}
