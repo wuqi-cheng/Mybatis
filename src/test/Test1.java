@@ -51,7 +51,7 @@ public class Test1 {
 		for (Student student : st) {
 			System.out.println(student);
 		}
-		System.out.println("--sssss---");
+		System.out.println("-----");
 		is.close();
 		
 	}
